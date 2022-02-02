@@ -1,0 +1,29 @@
+.Selector {
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  vertical-align: top;
+  margin: auto;
+}
+
+.Notes {
+  display: block;
+  position: relative;
+  width: 150px;
+  text-align: center;
+  height: 100%;
+  margin: auto 12px;
+}
+
+.ChordSelector {
+  display: block;
+  position: relative;
+  width: 150px;
+  text-align: center;
+  height: 100%;
+  margin: 10px 0;
+}
+
+.react-tabs {
+  margin: 10px 0;
+}

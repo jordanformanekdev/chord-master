@@ -1,0 +1,8 @@
+.KeySelector {
+  display: block;
+  position: relative;
+  width: 150px;
+  text-align: center;
+  height: 100%;
+  margin: auto 12px;
+}

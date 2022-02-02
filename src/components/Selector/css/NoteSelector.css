@@ -1,0 +1,25 @@
+.NoteSelector {
+
+}
+
+.Notes {
+  margin: auto 0;
+}
+
+.NotesList {
+  list-style: none;
+  display: inline-block;
+  padding: 0;
+  cursor: pointer;
+}
+
+.NoteListItem {
+  display: inline;
+  margin: auto 4px;
+}
+
+.NoteListItem.Selected {
+  display: inline;
+  margin: auto 4px;
+  background-color: #c3c3c3;
+}
