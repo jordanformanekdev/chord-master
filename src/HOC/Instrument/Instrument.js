@@ -3,7 +3,7 @@ import React from 'react';
 import './css/Instrument.css';
 import Guitar from '../../container/Guitar/Guitar';
 import Selector from '../../container/Selector/Selector';
-import { getNotes, getChords } from '../../components/Utilities/Utilities'
+import { getNotes, getChords, getChordNotes } from '../../components/Utilities/Utilities'
 
 class Instrument extends React.Component {
   constructor(props) {
@@ -12,6 +12,7 @@ class Instrument extends React.Component {
     this.handleScaleChange = this.handleScaleChange.bind(this);
     this.handleScaleTypeChange = this.handleScaleTypeChange.bind(this);
     this.handleNoteSelectionChange = this.handleNoteSelectionChange.bind(this);
+    this.handleChordSelectionChange = this.handleChordSelectionChange.bind(this);
     this.state = {
                   musicKey: 'C',
                   musicScale: 'Major',
@@ -20,6 +21,7 @@ class Instrument extends React.Component {
                   musicSelectorNotes: ["C", "D", "E", "F", "G", "A", "B"],
                   musicSelectorChords: ["C", "Dm", "Em", "F", "G", "Am", "Bdim"],
                   selectedNotes: [],
+                  selectedChords: []
                 };
   }
 
@@ -68,6 +70,27 @@ class Instrument extends React.Component {
     this.setState({musicScaleNotes: instrumentScaleNotes});
   }
 
+  handleChordSelectionChange(selectedChords) {
+    this.setState({selectedChords: selectedChords});
+    let instrumentScaleNotes = null;
+    let musicSelectorNotes = null;
+
+    //Write Filter Method Here
+    if (selectedChords.length) {
+      instrumentScaleNotes = getNotes(this.state.musicKey, this.state.musicScale, this.state.musicScaleType);;
+      musicSelectorNotes = getChordNotes(selectedChords, this.state.musicScaleNotes);
+      this.setState({musicSelectorNotes: instrumentScaleNotes});
+      this.setState({musicScaleNotes: musicSelectorNotes});
+    } else {
+      instrumentScaleNotes = getNotes(this.state.musicKey, this.state.musicScale, this.state.musicScaleType);
+      musicSelectorNotes = instrumentScaleNotes;
+      this.setState({musicSelectorNotes: musicSelectorNotes});
+      this.setState({musicScaleNotes: musicSelectorNotes});
+    }
+
+
+  }
+
   render() {
     return (
 
@@ -77,7 +100,8 @@ class Instrument extends React.Component {
           onScaleTypeChange={this.handleScaleTypeChange}
           musicScaleNotes={this.state.musicSelectorNotes}
           musicScaleChords={this.state.musicSelectorChords}
-          onNoteSelectChange={this.handleNoteSelectionChange}/>
+          onNoteSelectChange={this.handleNoteSelectionChange}
+          onChordSelectChange={this.handleChordSelectionChange}/>
 
         <Guitar musicKey={this.state.musicKey}
           musicScale={this.state.musicScale}
