@@ -1,4 +1,5 @@
 export const MAJOR_TRIADS = ["", "m", "m", "", "", "m", "dim"];
+export const CHROMATIC = ["C", "C#/Db", "D", "D#/Eb", "E", "F", "F#/Gb", "G", "G#/Ab", "A", "A#/Bb", "B"];
 export const C_MAJOR = ["C", "D", "E", "F", "G", "A", "B"];
 export const CS_DF_MAJOR = ["C#/Db", "D#/Eb", "F", "F#/Gb", "G#/Ab", "A#/Bb", "C"];
 export const D_MAJOR = ["D", "E", "F#/Gb", "G", "A", "B", "C#/Db"];

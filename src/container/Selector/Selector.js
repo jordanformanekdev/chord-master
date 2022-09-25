@@ -17,6 +17,7 @@ class Selector extends React.Component {
     this.handleScaleChange = this.handleScaleChange.bind(this);
     this.handleScaleTypeChange = this.handleScaleTypeChange.bind(this);
     this.handleNoteSelectionChange = this.handleNoteSelectionChange.bind(this);
+    this.handleChordSelectionChange = this.handleChordSelectionChange.bind(this);
   }
 
   handleKeyChange(keyValue) {
@@ -32,8 +33,11 @@ class Selector extends React.Component {
   }
 
   handleNoteSelectionChange(selectedNotesArray) {
-    console.log(this.props);
     this.props.onNoteSelectChange(selectedNotesArray);
+  }
+
+  handleChordSelectionChange(selectedChordsArray) {
+    this.props.onChordSelectChange(selectedChordsArray);
   }
 
   render() {
@@ -42,7 +46,7 @@ class Selector extends React.Component {
         <KeySelector handleKeyChange={this.handleKeyChange}/>
 
         <NoteSelector notes={this.props.musicScaleNotes} handleNoteSelectionChange={this.handleNoteSelectionChange}/>
-        <ChordSelector chords={this.props.musicScaleChords} handleNoteSelectionChange={this.handleNoteSelectionChange}/>
+        <ChordSelector chords={this.props.musicScaleChords} handleChordSelectionChange={this.handleChordSelectionChange}/>
         <Tabs>
           <TabList>
             <Tab>Scale</Tab>
